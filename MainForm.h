@@ -108,6 +108,7 @@ namespace Practica2sem {
 			this->trackBar1->TabIndex = 0;
 			this->trackBar1->TabStop = false;
 			this->trackBar1->TickStyle = System::Windows::Forms::TickStyle::None;
+			this->trackBar1->Value = 25;
 			this->trackBar1->ValueChanged += gcnew System::EventHandler(this, &MainForm::trackBar1_ValueChanged);
 			// 
 			// trackBar3
@@ -120,6 +121,7 @@ namespace Practica2sem {
 			this->trackBar3->TabIndex = 1;
 			this->trackBar3->TabStop = false;
 			this->trackBar3->TickStyle = System::Windows::Forms::TickStyle::None;
+			this->trackBar3->Value = 25;
 			this->trackBar3->ValueChanged += gcnew System::EventHandler(this, &MainForm::trackBar3_ValueChanged);
 			// 
 			// trackBar2
@@ -132,6 +134,7 @@ namespace Practica2sem {
 			this->trackBar2->TabIndex = 2;
 			this->trackBar2->TabStop = false;
 			this->trackBar2->TickStyle = System::Windows::Forms::TickStyle::None;
+			this->trackBar2->Value = 10;
 			this->trackBar2->ValueChanged += gcnew System::EventHandler(this, &MainForm::trackBar2_ValueChanged);
 			// 
 			// trackBar4
@@ -143,6 +146,7 @@ namespace Practica2sem {
 			this->trackBar4->TabIndex = 3;
 			this->trackBar4->TabStop = false;
 			this->trackBar4->TickStyle = System::Windows::Forms::TickStyle::None;
+			this->trackBar4->Value = 25;
 			this->trackBar4->ValueChanged += gcnew System::EventHandler(this, &MainForm::trackBar4_ValueChanged);
 			// 
 			// trackBar5
@@ -154,6 +158,7 @@ namespace Practica2sem {
 			this->trackBar5->TabIndex = 4;
 			this->trackBar5->TabStop = false;
 			this->trackBar5->TickStyle = System::Windows::Forms::TickStyle::None;
+			this->trackBar5->Value = 25;
 			this->trackBar5->ValueChanged += gcnew System::EventHandler(this, &MainForm::trackBar5_ValueChanged);
 			// 
 			// trackBar6
