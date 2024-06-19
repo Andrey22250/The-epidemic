@@ -42,21 +42,25 @@ namespace Practica2sem {
 
 
 	private: System::Windows::Forms::TrackBar^ trackBar4;
-	private: System::Windows::Forms::TrackBar^ trackBar5;
-	private: System::Windows::Forms::TrackBar^ trackBar6;
 
 
 
 
 
-	private: System::Windows::Forms::Label^ label6;
-	private: System::Windows::Forms::Label^ label5;
+
+
+
+
 	private: System::Windows::Forms::Label^ label4;
 
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
 	private: array<array<PictureBox^>^>^ Field;
+	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::Label^ label10;
 
 
 
@@ -82,20 +86,18 @@ namespace Practica2sem {
 			this->trackBar3 = (gcnew System::Windows::Forms::TrackBar());
 			this->trackBar2 = (gcnew System::Windows::Forms::TrackBar());
 			this->trackBar4 = (gcnew System::Windows::Forms::TrackBar());
-			this->trackBar5 = (gcnew System::Windows::Forms::TrackBar());
-			this->trackBar6 = (gcnew System::Windows::Forms::TrackBar());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->label10 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar3))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar4))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar5))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar6))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// trackBar1
@@ -115,91 +117,41 @@ namespace Practica2sem {
 			// 
 			this->trackBar3->Location = System::Drawing::Point(1785, 260);
 			this->trackBar3->Margin = System::Windows::Forms::Padding(0);
-			this->trackBar3->Maximum = 100;
+			this->trackBar3->Maximum = 14;
+			this->trackBar3->Minimum = 1;
 			this->trackBar3->Name = L"trackBar3";
 			this->trackBar3->Size = System::Drawing::Size(339, 69);
 			this->trackBar3->TabIndex = 1;
 			this->trackBar3->TabStop = false;
 			this->trackBar3->TickStyle = System::Windows::Forms::TickStyle::None;
-			this->trackBar3->Value = 25;
+			this->trackBar3->Value = 8;
 			this->trackBar3->ValueChanged += gcnew System::EventHandler(this, &MainForm::trackBar3_ValueChanged);
 			// 
 			// trackBar2
 			// 
 			this->trackBar2->Location = System::Drawing::Point(1785, 148);
 			this->trackBar2->Margin = System::Windows::Forms::Padding(0);
-			this->trackBar2->Maximum = 100;
+			this->trackBar2->Maximum = 14;
+			this->trackBar2->Minimum = 1;
 			this->trackBar2->Name = L"trackBar2";
 			this->trackBar2->Size = System::Drawing::Size(339, 69);
 			this->trackBar2->TabIndex = 2;
 			this->trackBar2->TabStop = false;
 			this->trackBar2->TickStyle = System::Windows::Forms::TickStyle::None;
-			this->trackBar2->Value = 10;
+			this->trackBar2->Value = 7;
 			this->trackBar2->ValueChanged += gcnew System::EventHandler(this, &MainForm::trackBar2_ValueChanged);
 			// 
 			// trackBar4
 			// 
 			this->trackBar4->Location = System::Drawing::Point(1785, 364);
-			this->trackBar4->Maximum = 100;
+			this->trackBar4->Maximum = 50;
 			this->trackBar4->Name = L"trackBar4";
 			this->trackBar4->Size = System::Drawing::Size(339, 69);
 			this->trackBar4->TabIndex = 3;
 			this->trackBar4->TabStop = false;
 			this->trackBar4->TickStyle = System::Windows::Forms::TickStyle::None;
-			this->trackBar4->Value = 25;
+			this->trackBar4->Value = 15;
 			this->trackBar4->ValueChanged += gcnew System::EventHandler(this, &MainForm::trackBar4_ValueChanged);
-			// 
-			// trackBar5
-			// 
-			this->trackBar5->Location = System::Drawing::Point(1785, 471);
-			this->trackBar5->Maximum = 100;
-			this->trackBar5->Name = L"trackBar5";
-			this->trackBar5->Size = System::Drawing::Size(339, 69);
-			this->trackBar5->TabIndex = 4;
-			this->trackBar5->TabStop = false;
-			this->trackBar5->TickStyle = System::Windows::Forms::TickStyle::None;
-			this->trackBar5->Value = 25;
-			this->trackBar5->ValueChanged += gcnew System::EventHandler(this, &MainForm::trackBar5_ValueChanged);
-			// 
-			// trackBar6
-			// 
-			this->trackBar6->Location = System::Drawing::Point(1785, 578);
-			this->trackBar6->Maximum = 100;
-			this->trackBar6->Name = L"trackBar6";
-			this->trackBar6->Size = System::Drawing::Size(339, 69);
-			this->trackBar6->TabIndex = 5;
-			this->trackBar6->TabStop = false;
-			this->trackBar6->TickStyle = System::Windows::Forms::TickStyle::None;
-			this->trackBar6->Value = 30;
-			this->trackBar6->ValueChanged += gcnew System::EventHandler(this, &MainForm::trackBar6_ValueChanged);
-			// 
-			// label6
-			// 
-			this->label6->AutoSize = true;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Cascadia Code", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->label6->ForeColor = System::Drawing::SystemColors::Window;
-			this->label6->ImageAlign = System::Drawing::ContentAlignment::MiddleRight;
-			this->label6->Location = System::Drawing::Point(2043, 543);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(70, 32);
-			this->label6->TabIndex = 11;
-			this->label6->Text = L"0,00";
-			this->label6->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
-			// 
-			// label5
-			// 
-			this->label5->AutoSize = true;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Cascadia Code", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->label5->ForeColor = System::Drawing::SystemColors::Window;
-			this->label5->ImageAlign = System::Drawing::ContentAlignment::MiddleRight;
-			this->label5->Location = System::Drawing::Point(2043, 436);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(70, 32);
-			this->label5->TabIndex = 12;
-			this->label5->Text = L"0,00";
-			this->label5->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			// 
 			// label4
 			// 
@@ -224,9 +176,9 @@ namespace Practica2sem {
 			this->label3->ImageAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->label3->Location = System::Drawing::Point(2043, 217);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(70, 32);
+			this->label3->Size = System::Drawing::Size(28, 32);
 			this->label3->TabIndex = 14;
-			this->label3->Text = L"0,00";
+			this->label3->Text = L"0";
 			this->label3->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			// 
 			// label2
@@ -238,9 +190,9 @@ namespace Practica2sem {
 			this->label2->ImageAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->label2->Location = System::Drawing::Point(2043, 113);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(70, 32);
+			this->label2->Size = System::Drawing::Size(28, 32);
 			this->label2->TabIndex = 15;
-			this->label2->Text = L"0,00";
+			this->label2->Text = L"1";
 			this->label2->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			// 
 			// label1
@@ -257,6 +209,54 @@ namespace Practica2sem {
 			this->label1->Text = L"0,00";
 			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Font = (gcnew System::Drawing::Font(L"Roboto Medium", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label7->ForeColor = System::Drawing::SystemColors::Window;
+			this->label7->Location = System::Drawing::Point(1715, 9);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(319, 29);
+			this->label7->TabIndex = 17;
+			this->label7->Text = L"Вероятность заражения:";
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Font = (gcnew System::Drawing::Font(L"Roboto Medium", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label8->ForeColor = System::Drawing::SystemColors::Window;
+			this->label8->Location = System::Drawing::Point(1715, 113);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(314, 29);
+			this->label8->TabIndex = 18;
+			this->label8->Text = L"Инкубационный период:";
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Font = (gcnew System::Drawing::Font(L"Roboto Medium", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label9->ForeColor = System::Drawing::SystemColors::Window;
+			this->label9->Location = System::Drawing::Point(1715, 217);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(263, 29);
+			this->label9->TabIndex = 19;
+			this->label9->Text = L"Время заболевания:";
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Font = (gcnew System::Drawing::Font(L"Roboto Medium", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label10->ForeColor = System::Drawing::SystemColors::Window;
+			this->label10->Location = System::Drawing::Point(1715, 329);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(287, 29);
+			this->label10->TabIndex = 20;
+			this->label10->Text = L"Летальность болезни:";
+			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(144, 144);
@@ -265,14 +265,14 @@ namespace Practica2sem {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
 				static_cast<System::Int32>(static_cast<System::Byte>(32)));
 			this->ClientSize = System::Drawing::Size(2136, 1082);
+			this->Controls->Add(this->label10);
+			this->Controls->Add(this->label9);
+			this->Controls->Add(this->label8);
+			this->Controls->Add(this->label7);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label4);
-			this->Controls->Add(this->label5);
-			this->Controls->Add(this->label6);
-			this->Controls->Add(this->trackBar6);
-			this->Controls->Add(this->trackBar5);
 			this->Controls->Add(this->trackBar4);
 			this->Controls->Add(this->trackBar2);
 			this->Controls->Add(this->trackBar3);
@@ -292,8 +292,6 @@ namespace Practica2sem {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar3))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar4))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar5))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar6))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -303,11 +301,9 @@ namespace Practica2sem {
 		int size = 14;
 		int listsize = 31;
 		array<PictureBox^, 2>^ Field = gcnew array<PictureBox^, 2>(100,100);
-		label6->Text = System::Convert::ToString(trackBar6->Value/100.0);
-		label5->Text = System::Convert::ToString(trackBar5->Value / 100.0);
 		label4->Text = System::Convert::ToString(trackBar4->Value / 100.0);
-		label3->Text = System::Convert::ToString(trackBar3->Value / 100.0);
-		label2->Text = System::Convert::ToString(trackBar2->Value / 100.0);
+		label3->Text = System::Convert::ToString(trackBar3->Value);
+		label2->Text = System::Convert::ToString(trackBar2->Value);
 		label1->Text = System::Convert::ToString(trackBar1->Value / 100.0);
 		for (int i = 0; i<listsize; i++)
 			for (int j = 0; j < listsize; j++)
@@ -320,21 +316,14 @@ namespace Practica2sem {
 				this->Controls->Add(Field[i,j]);
 			}
 	}
-
-	private: System::Void trackBar6_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
-		label6->Text = System::Convert::ToString(trackBar6->Value/100.0);
-	}
-private: System::Void trackBar5_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
-	label5->Text = System::Convert::ToString(trackBar5->Value / 100.0);
-}
 private: System::Void trackBar4_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 	label4->Text = System::Convert::ToString(trackBar4->Value / 100.0);
 }
 private: System::Void trackBar3_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
-	label3->Text = System::Convert::ToString(trackBar3->Value / 100.0);
+	label3->Text = System::Convert::ToString(trackBar3->Value);
 }
 private: System::Void trackBar2_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
-	label2->Text = System::Convert::ToString(trackBar2->Value / 100.0);
+	label2->Text = System::Convert::ToString(trackBar2->Value);
 }
 private: System::Void trackBar1_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 	label1->Text = System::Convert::ToString(trackBar1->Value / 100.0);
