@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Healthy.h"
 namespace Practica2sem {
 
 	using namespace System;
@@ -56,7 +56,7 @@ namespace Practica2sem {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
-	private: array<array<PictureBox^>^>^ Field;
+	private: cli::array<cli::array<PictureBox^>^>^ Field;
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::Label^ label9;
@@ -300,7 +300,7 @@ namespace Practica2sem {
 	private: System::Void MainForm_Activated(System::Object^ sender, System::EventArgs^ e) {
 		int size = 14;
 		int listsize = 31;
-		array<PictureBox^, 2>^ Field = gcnew array<PictureBox^, 2>(100,100);
+		cli::array<PictureBox^, 2>^ Field = gcnew cli::array<PictureBox^, 2>(100,100);
 		label4->Text = System::Convert::ToString(trackBar4->Value / 100.0);
 		label3->Text = System::Convert::ToString(trackBar3->Value);
 		label2->Text = System::Convert::ToString(trackBar2->Value);
@@ -327,6 +327,7 @@ private: System::Void trackBar2_ValueChanged(System::Object^ sender, System::Eve
 }
 private: System::Void trackBar1_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 	label1->Text = System::Convert::ToString(trackBar1->Value / 100.0);
+	
 }
 };
 }
