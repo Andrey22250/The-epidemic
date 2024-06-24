@@ -120,16 +120,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Dead.cpp" />
     <ClCompile Include="Healthy.cpp" />
+    <ClCompile Include="Infected.cpp" />
     <ClCompile Include="MainForm.cpp" />
+    <ClCompile Include="Sick.cpp" />
     <ClCompile Include="Status.cpp" />
     <ClCompile Include="Unit.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Dead.h" />
     <ClInclude Include="Healthy.h" />
+    <ClInclude Include="Infected.h" />
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Sick.h" />
     <ClInclude Include="Status.h" />
     <ClInclude Include="Unit.h" />
   </ItemGroup>

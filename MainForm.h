@@ -1,5 +1,5 @@
 #pragma once
-#include "Healthy.h"
+
 namespace Practica2sem {
 
 	using namespace System;
@@ -61,7 +61,6 @@ namespace Practica2sem {
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::Label^ label10;
-
 
 
 
@@ -297,9 +296,9 @@ namespace Practica2sem {
 
 		}
 #pragma endregion
-	private: System::Void MainForm_Activated(System::Object^ sender, System::EventArgs^ e) {
-		int size = 14;
-		int listsize = 31;
+private: System::Void MainForm_Activated(System::Object^ sender, System::EventArgs^ e) {
+		int size = 11;
+		int listsize = 51;
 		cli::array<PictureBox^, 2>^ Field = gcnew cli::array<PictureBox^, 2>(100,100);
 		label4->Text = System::Convert::ToString(trackBar4->Value / 100.0);
 		label3->Text = System::Convert::ToString(trackBar3->Value);
@@ -309,7 +308,7 @@ namespace Practica2sem {
 			for (int j = 0; j < listsize; j++)
 			{
 				Field[i,j] = gcnew PictureBox();
-				Field[i,j]->Location = Point(200 + ((j*1.5)*size), 25 + ((i*1.5)*size));
+				Field[i,j]->Location = Point(200 + ((j*1.15)*size), 25 + ((i*1.15)*size));
 				Field[i,j]->BackColor = Color::White;
 				Field[i,j]->Width = size;
 				Field[i,j]->Height = size;
@@ -327,7 +326,6 @@ private: System::Void trackBar2_ValueChanged(System::Object^ sender, System::Eve
 }
 private: System::Void trackBar1_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 	label1->Text = System::Convert::ToString(trackBar1->Value / 100.0);
-	
 }
 };
 }
