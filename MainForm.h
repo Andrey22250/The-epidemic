@@ -1,5 +1,6 @@
 #pragma once
-
+#include <array>
+#include "Unit.h"
 namespace Practica2sem {
 
 	using namespace System;
@@ -56,11 +57,18 @@ namespace Practica2sem {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
-	private: cli::array<cli::array<PictureBox^>^>^ Field;
+	private: cli::array<PictureBox^, 2>^ Field = gcnew cli::array<PictureBox^, 2>(50, 50);
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::Button^ Field11x11;
+	private: System::Windows::Forms::Button^ Field21x21;
+	private: System::Windows::Forms::Button^ Field31x31;
+	private: System::Windows::Forms::Button^ Field41x41;
+
+
 
 
 
@@ -93,6 +101,11 @@ namespace Practica2sem {
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->Field11x11 = (gcnew System::Windows::Forms::Button());
+			this->Field21x21 = (gcnew System::Windows::Forms::Button());
+			this->Field31x31 = (gcnew System::Windows::Forms::Button());
+			this->Field41x41 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar3))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar2))->BeginInit();
@@ -256,6 +269,94 @@ namespace Practica2sem {
 			this->label10->TabIndex = 20;
 			this->label10->Text = L"Летальность болезни:";
 			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Roboto Medium", 16, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label5->ForeColor = System::Drawing::SystemColors::Window;
+			this->label5->Location = System::Drawing::Point(1814, 436);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(220, 38);
+			this->label5->TabIndex = 21;
+			this->label5->Text = L"Размер поля";
+			// 
+			// Field11x11
+			// 
+			this->Field11x11->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->Field11x11->FlatAppearance->BorderSize = 0;
+			this->Field11x11->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(50)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)), static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->Field11x11->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(50)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)), static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->Field11x11->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->Field11x11->ForeColor = System::Drawing::SystemColors::Window;
+			this->Field11x11->Location = System::Drawing::Point(1720, 511);
+			this->Field11x11->Name = L"Field11x11";
+			this->Field11x11->Size = System::Drawing::Size(180, 65);
+			this->Field11x11->TabIndex = 22;
+			this->Field11x11->Text = L"11x11";
+			this->Field11x11->UseVisualStyleBackColor = false;
+			this->Field11x11->Click += gcnew System::EventHandler(this, &MainForm::button1_Click);
+			// 
+			// Field21x21
+			// 
+			this->Field21x21->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->Field21x21->FlatAppearance->BorderSize = 0;
+			this->Field21x21->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(50)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)), static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->Field21x21->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(50)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)), static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->Field21x21->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->Field21x21->ForeColor = System::Drawing::SystemColors::Window;
+			this->Field21x21->Location = System::Drawing::Point(1933, 511);
+			this->Field21x21->Name = L"Field21x21";
+			this->Field21x21->Size = System::Drawing::Size(180, 65);
+			this->Field21x21->TabIndex = 23;
+			this->Field21x21->Text = L"21x21";
+			this->Field21x21->UseVisualStyleBackColor = false;
+			this->Field21x21->Click += gcnew System::EventHandler(this, &MainForm::button2_Click);
+			// 
+			// Field31x31
+			// 
+			this->Field31x31->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->Field31x31->FlatAppearance->BorderSize = 0;
+			this->Field31x31->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(50)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)), static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->Field31x31->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(50)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)), static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->Field31x31->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->Field31x31->ForeColor = System::Drawing::SystemColors::Window;
+			this->Field31x31->Location = System::Drawing::Point(1720, 611);
+			this->Field31x31->Name = L"Field31x31";
+			this->Field31x31->Size = System::Drawing::Size(180, 65);
+			this->Field31x31->TabIndex = 24;
+			this->Field31x31->Text = L"31x31";
+			this->Field31x31->UseVisualStyleBackColor = false;
+			this->Field31x31->Click += gcnew System::EventHandler(this, &MainForm::Field31x31_Click);
+			// 
+			// Field41x41
+			// 
+			this->Field41x41->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->Field41x41->FlatAppearance->BorderSize = 0;
+			this->Field41x41->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(50)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)), static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->Field41x41->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(50)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)), static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->Field41x41->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->Field41x41->ForeColor = System::Drawing::SystemColors::Window;
+			this->Field41x41->Location = System::Drawing::Point(1933, 611);
+			this->Field41x41->Name = L"Field41x41";
+			this->Field41x41->Size = System::Drawing::Size(180, 65);
+			this->Field41x41->TabIndex = 25;
+			this->Field41x41->Text = L"41x41";
+			this->Field41x41->UseVisualStyleBackColor = false;
+			this->Field41x41->Click += gcnew System::EventHandler(this, &MainForm::button4_Click);
+			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(144, 144);
@@ -264,6 +365,11 @@ namespace Practica2sem {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
 				static_cast<System::Int32>(static_cast<System::Byte>(32)));
 			this->ClientSize = System::Drawing::Size(2136, 1082);
+			this->Controls->Add(this->Field41x41);
+			this->Controls->Add(this->Field31x31);
+			this->Controls->Add(this->Field21x21);
+			this->Controls->Add(this->Field11x11);
+			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label10);
 			this->Controls->Add(this->label9);
 			this->Controls->Add(this->label8);
@@ -296,24 +402,16 @@ namespace Practica2sem {
 
 		}
 #pragma endregion
+	private: int listsize;
+	private: int sizepic;
 private: System::Void MainForm_Activated(System::Object^ sender, System::EventArgs^ e) {
-		int size = 11;
-		int listsize = 51;
-		cli::array<PictureBox^, 2>^ Field = gcnew cli::array<PictureBox^, 2>(100,100);
+		
+		cli::array<PictureBox^, 2>^ Field = gcnew cli::array<PictureBox^, 2>(50,50);
+		
 		label4->Text = System::Convert::ToString(trackBar4->Value / 100.0);
 		label3->Text = System::Convert::ToString(trackBar3->Value);
 		label2->Text = System::Convert::ToString(trackBar2->Value);
 		label1->Text = System::Convert::ToString(trackBar1->Value / 100.0);
-		for (int i = 0; i<listsize; i++)
-			for (int j = 0; j < listsize; j++)
-			{
-				Field[i,j] = gcnew PictureBox();
-				Field[i,j]->Location = Point(200 + ((j*1.15)*size), 25 + ((i*1.15)*size));
-				Field[i,j]->BackColor = Color::White;
-				Field[i,j]->Width = size;
-				Field[i,j]->Height = size;
-				this->Controls->Add(Field[i,j]);
-			}
 	}
 private: System::Void trackBar4_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 	label4->Text = System::Convert::ToString(trackBar4->Value / 100.0);
@@ -326,6 +424,47 @@ private: System::Void trackBar2_ValueChanged(System::Object^ sender, System::Eve
 }
 private: System::Void trackBar1_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 	label1->Text = System::Convert::ToString(trackBar1->Value / 100.0);
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	DeleteField();
+	sizepic = 50;
+	listsize = 11;
+	CreateField();
+}
+private: void DeleteField() {
+	for (int i = 0; i < listsize; i++)
+		for (int j = 0; j < listsize; j++)
+			this->Controls->Remove(Field[i, j]);
+}
+private: void CreateField() {
+	for (int i = 0; i < listsize; i++)
+		for (int j = 0; j < listsize; j++)
+		{
+			Field[i, j] = gcnew PictureBox();
+			Field[i, j]->Location = Point(200 + ((j * 1.15) * sizepic), 25 + ((i * 1.15) * sizepic));
+			Field[i, j]->BackColor = Color::White;
+			Field[i, j]->Width = sizepic;
+			Field[i, j]->Height = sizepic;
+			this->Controls->Add(Field[i, j]);
+		}
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	DeleteField();
+	sizepic = 27;
+	listsize = 21;
+	CreateField();
+}
+private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+	DeleteField();
+	sizepic = 14;
+	listsize = 41;
+	CreateField();
+}
+private: System::Void Field31x31_Click(System::Object^ sender, System::EventArgs^ e) {
+	DeleteField();
+	sizepic = 18;
+	listsize = 31;
+	CreateField();
 }
 };
 }
