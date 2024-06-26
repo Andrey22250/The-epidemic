@@ -12,6 +12,8 @@ ref class Unit
 {
 public:
 	Stat GetStatus();
+	void SetHealthy(int Chance);
+	int GetHealthy();
 	Unit();
 	~Unit();
 private:

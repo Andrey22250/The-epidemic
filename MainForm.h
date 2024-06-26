@@ -53,7 +53,7 @@ namespace Practica2sem {
 
 
 	private: System::Windows::Forms::Label^ label4;
-
+	private: cli::array<Unit^, 2> ^Peoples = gcnew cli::array<Unit^, 2>(50, 50);
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
@@ -404,6 +404,7 @@ namespace Practica2sem {
 #pragma endregion
 	private: int listsize;
 	private: int sizepic;
+	private: 
 private: System::Void MainForm_Activated(System::Object^ sender, System::EventArgs^ e) {
 		label4->Text = System::Convert::ToString(trackBar4->Value / 100.0);
 		label3->Text = System::Convert::ToString(trackBar3->Value);
@@ -412,6 +413,8 @@ private: System::Void MainForm_Activated(System::Object^ sender, System::EventAr
 	}
 private: System::Void trackBar4_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 	label4->Text = System::Convert::ToString(trackBar4->Value / 100.0);
+	Peoples[0,0]->SetHealthy(trackBar4->Value);
+	label1->Text = System::Convert::ToString(Peoples[0, 0]->GetHealthy() / 100.0);
 }
 private: System::Void trackBar3_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 	label3->Text = System::Convert::ToString(trackBar3->Value);

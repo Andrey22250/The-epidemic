@@ -14,3 +14,11 @@ Unit::~Unit()
 Stat Unit::GetStatus() {
 	return status;
 }
+
+void Unit::SetHealthy(int Chance) {
+	this->health.SetChance(Chance);
+}
+
+int Unit::GetHealthy() {
+	return this->health.GetChance();
+}
