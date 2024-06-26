@@ -12,11 +12,3 @@ void Sick::SetPeriod(int Period)
 {
 	this->Period = Period;
 }
-int Sick::GetChanceOfDead()
-{
-	return Period;
-}
-void Sick::SetChanceOfDead(int Chance)
-{
-	this->ChanceOfDead = Chance;
-}

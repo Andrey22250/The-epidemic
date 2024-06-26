@@ -1,7 +1,6 @@
 #pragma once
-#include <iostream>
 
-class Healthy
+ref class Healthy
 {
 public:
 	Healthy();

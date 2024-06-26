@@ -405,9 +405,6 @@ namespace Practica2sem {
 	private: int listsize;
 	private: int sizepic;
 private: System::Void MainForm_Activated(System::Object^ sender, System::EventArgs^ e) {
-		
-		cli::array<PictureBox^, 2>^ Field = gcnew cli::array<PictureBox^, 2>(50,50);
-		
 		label4->Text = System::Convert::ToString(trackBar4->Value / 100.0);
 		label3->Text = System::Convert::ToString(trackBar3->Value);
 		label2->Text = System::Convert::ToString(trackBar2->Value);

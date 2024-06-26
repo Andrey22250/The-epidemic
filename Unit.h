@@ -8,15 +8,14 @@
 
 using namespace std;
 
-class Unit
+ref class Unit
 {
 public:
 	Stat GetStatus();
-	Healthy GetHealth();
 	Unit();
 	~Unit();
 private:
-	Stat status = healthy;
+	Stat status;
 	Healthy health;
 	Infected infected;
 	Sick sick;

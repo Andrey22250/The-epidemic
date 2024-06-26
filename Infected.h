@@ -1,5 +1,5 @@
 #pragma once
-class Infected
+ref class Infected
 {
 public:
 	Infected();
