@@ -10,5 +10,5 @@ float Healthy::GetChance()
 	return this->chance;
 }
 void Healthy::SetChance(int Chance) {
-	chance = Chance;
+	this->chance = Chance;
 }

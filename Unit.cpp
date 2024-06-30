@@ -15,6 +15,9 @@ Unit::~Unit()
 Stat Unit::GetStatus() {
 	return status;
 }
+void Unit::SetStatus(Stat status) {
+	this->status = status;
+}
 
 void Unit::SetHealthy(int Chance) {
 	this->health.SetChance(Chance);
@@ -22,4 +25,20 @@ void Unit::SetHealthy(int Chance) {
 
 int Unit::GetHealthy() {
 	return this->health.GetChance();
+}
+
+void Unit::SetMaxPerInf(int Period) {
+	this->infected.SetMaxPeriod(Period);
+}
+
+int Unit::GetMaxPerInf() {
+	return this->infected.GetMaxPeriod();
+}
+
+void Unit::SetPerInf(int Period) {
+	this->infected.SetPeriod(Period);
+}
+
+int Unit::GetPerInf() {
+	return this->infected.GetPeriod();
 }

@@ -1,6 +1,8 @@
-#pragma once
+п»ї#pragma once
+#include <iostream>
 #include <array>
 #include "Unit.h"
+#include <Windows.h>
 namespace Practica2sem {
 
 	using namespace System;
@@ -11,7 +13,7 @@ namespace Practica2sem {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Сводка для MainForm
+	/// РЎРІРѕРґРєР° РґР»СЏ MainForm
 	/// </summary>
 	public ref class MainForm : public System::Windows::Forms::Form
 	{
@@ -20,13 +22,13 @@ namespace Practica2sem {
 		{
 			InitializeComponent();
 			//
-			//TODO: добавьте код конструктора
+			//TODO: РґРѕР±Р°РІСЊС‚Рµ РєРѕРґ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Освободить все используемые ресурсы.
+		/// РћСЃРІРѕР±РѕРґРёС‚СЊ РІСЃРµ РёСЃРїРѕР»СЊР·СѓРµРјС‹Рµ СЂРµСЃСѓСЂСЃС‹.
 		/// </summary>
 		~MainForm()
 		{
@@ -67,6 +69,14 @@ namespace Practica2sem {
 	private: System::Windows::Forms::Button^ Field21x21;
 	private: System::Windows::Forms::Button^ Field31x31;
 	private: System::Windows::Forms::Button^ Field41x41;
+	private: System::Windows::Forms::Button^ ChangeField;
+	private: System::Windows::Forms::Button^ StepButton;
+	private: System::Windows::Forms::Button^ PlayButton;
+
+
+	private: System::Windows::Forms::Button^ ResetButton;
+
+
 
 
 
@@ -78,14 +88,14 @@ namespace Practica2sem {
 
 	private:
 		/// <summary>
-		/// Обязательная переменная конструктора.
+		/// РћР±СЏР·Р°С‚РµР»СЊРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°.
 		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Требуемый метод для поддержки конструктора — не изменяйте 
-		/// содержимое этого метода с помощью редактора кода.
+		/// РўСЂРµР±СѓРµРјС‹Р№ РјРµС‚РѕРґ РґР»СЏ РїРѕРґРґРµСЂР¶РєРё РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° вЂ” РЅРµ РёР·РјРµРЅСЏР№С‚Рµ 
+		/// СЃРѕРґРµСЂР¶РёРјРѕРµ СЌС‚РѕРіРѕ РјРµС‚РѕРґР° СЃ РїРѕРјРѕС‰СЊСЋ СЂРµРґР°РєС‚РѕСЂР° РєРѕРґР°.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -106,6 +116,10 @@ namespace Practica2sem {
 			this->Field21x21 = (gcnew System::Windows::Forms::Button());
 			this->Field31x31 = (gcnew System::Windows::Forms::Button());
 			this->Field41x41 = (gcnew System::Windows::Forms::Button());
+			this->ChangeField = (gcnew System::Windows::Forms::Button());
+			this->StepButton = (gcnew System::Windows::Forms::Button());
+			this->PlayButton = (gcnew System::Windows::Forms::Button());
+			this->ResetButton = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar3))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar2))->BeginInit();
@@ -231,7 +245,7 @@ namespace Practica2sem {
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(319, 29);
 			this->label7->TabIndex = 17;
-			this->label7->Text = L"Вероятность заражения:";
+			this->label7->Text = L"Р’РµСЂРѕСЏС‚РЅРѕСЃС‚СЊ Р·Р°СЂР°Р¶РµРЅРёСЏ:";
 			// 
 			// label8
 			// 
@@ -243,7 +257,7 @@ namespace Practica2sem {
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(314, 29);
 			this->label8->TabIndex = 18;
-			this->label8->Text = L"Инкубационный период:";
+			this->label8->Text = L"РРЅРєСѓР±Р°С†РёРѕРЅРЅС‹Р№ РїРµСЂРёРѕРґ:";
 			// 
 			// label9
 			// 
@@ -255,7 +269,7 @@ namespace Practica2sem {
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(263, 29);
 			this->label9->TabIndex = 19;
-			this->label9->Text = L"Время заболевания:";
+			this->label9->Text = L"Р’СЂРµРјСЏ Р·Р°Р±РѕР»РµРІР°РЅРёСЏ:";
 			// 
 			// label10
 			// 
@@ -267,7 +281,7 @@ namespace Practica2sem {
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(287, 29);
 			this->label10->TabIndex = 20;
-			this->label10->Text = L"Летальность болезни:";
+			this->label10->Text = L"Р›РµС‚Р°Р»СЊРЅРѕСЃС‚СЊ Р±РѕР»РµР·РЅРё:";
 			// 
 			// label5
 			// 
@@ -279,7 +293,7 @@ namespace Practica2sem {
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(220, 38);
 			this->label5->TabIndex = 21;
-			this->label5->Text = L"Размер поля";
+			this->label5->Text = L"Р Р°Р·РјРµСЂ РїРѕР»СЏ";
 			// 
 			// Field11x11
 			// 
@@ -357,6 +371,90 @@ namespace Practica2sem {
 			this->Field41x41->UseVisualStyleBackColor = false;
 			this->Field41x41->Click += gcnew System::EventHandler(this, &MainForm::button4_Click);
 			// 
+			// ChangeField
+			// 
+			this->ChangeField->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->ChangeField->Enabled = false;
+			this->ChangeField->FlatAppearance->BorderSize = 0;
+			this->ChangeField->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(50)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)), static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->ChangeField->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(50)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)), static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->ChangeField->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->ChangeField->ForeColor = System::Drawing::SystemColors::Window;
+			this->ChangeField->Location = System::Drawing::Point(1800, 710);
+			this->ChangeField->Name = L"ChangeField";
+			this->ChangeField->Size = System::Drawing::Size(249, 40);
+			this->ChangeField->TabIndex = 26;
+			this->ChangeField->Text = L"РџРѕРјРµРЅСЏС‚СЊ РїРѕР»Рµ";
+			this->ChangeField->UseVisualStyleBackColor = false;
+			this->ChangeField->Click += gcnew System::EventHandler(this, &MainForm::button1_Click_1);
+			// 
+			// StepButton
+			// 
+			this->StepButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->StepButton->Enabled = false;
+			this->StepButton->FlatAppearance->BorderSize = 0;
+			this->StepButton->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(50)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)), static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->StepButton->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(50)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)), static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->StepButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->StepButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->StepButton->ForeColor = System::Drawing::SystemColors::Window;
+			this->StepButton->Location = System::Drawing::Point(1720, 873);
+			this->StepButton->Name = L"StepButton";
+			this->StepButton->Size = System::Drawing::Size(180, 77);
+			this->StepButton->TabIndex = 27;
+			this->StepButton->Text = L"в†Є";
+			this->StepButton->UseVisualStyleBackColor = false;
+			this->StepButton->Click += gcnew System::EventHandler(this, &MainForm::StepButton_Click);
+			// 
+			// PlayButton
+			// 
+			this->PlayButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->PlayButton->Enabled = false;
+			this->PlayButton->FlatAppearance->BorderSize = 0;
+			this->PlayButton->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(50)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)), static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->PlayButton->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(50)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)), static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->PlayButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->PlayButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->PlayButton->ForeColor = System::Drawing::SystemColors::Window;
+			this->PlayButton->Location = System::Drawing::Point(1933, 873);
+			this->PlayButton->Name = L"PlayButton";
+			this->PlayButton->Size = System::Drawing::Size(180, 77);
+			this->PlayButton->TabIndex = 28;
+			this->PlayButton->Text = L"в–¶";
+			this->PlayButton->UseVisualStyleBackColor = false;
+			this->PlayButton->Click += gcnew System::EventHandler(this, &MainForm::button2_Click_1);
+			// 
+			// ResetButton
+			// 
+			this->ResetButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->ResetButton->Enabled = false;
+			this->ResetButton->FlatAppearance->BorderSize = 0;
+			this->ResetButton->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(50)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)), static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->ResetButton->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(50)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)), static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->ResetButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->ResetButton->ForeColor = System::Drawing::SystemColors::Window;
+			this->ResetButton->Location = System::Drawing::Point(1822, 965);
+			this->ResetButton->Name = L"ResetButton";
+			this->ResetButton->Size = System::Drawing::Size(180, 65);
+			this->ResetButton->TabIndex = 29;
+			this->ResetButton->Text = L"РЎР±СЂРѕСЃ";
+			this->ResetButton->UseVisualStyleBackColor = false;
+			this->ResetButton->Click += gcnew System::EventHandler(this, &MainForm::ResetButton_Click);
+			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(144, 144);
@@ -365,6 +463,10 @@ namespace Practica2sem {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
 				static_cast<System::Int32>(static_cast<System::Byte>(32)));
 			this->ClientSize = System::Drawing::Size(2136, 1082);
+			this->Controls->Add(this->ResetButton);
+			this->Controls->Add(this->PlayButton);
+			this->Controls->Add(this->StepButton);
+			this->Controls->Add(this->ChangeField);
 			this->Controls->Add(this->Field41x41);
 			this->Controls->Add(this->Field31x31);
 			this->Controls->Add(this->Field21x21);
@@ -391,7 +493,7 @@ namespace Practica2sem {
 			this->Name = L"MainForm";
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"Эпидемия";
+			this->Text = L"Р­РїРёРґРµРјРёСЏ";
 			this->Activated += gcnew System::EventHandler(this, &MainForm::MainForm_Activated);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar3))->EndInit();
@@ -402,9 +504,9 @@ namespace Practica2sem {
 
 		}
 #pragma endregion
-	private: int listsize;
+	private: int listsize = 50;
 	private: int sizepic;
-	private: 
+	private: bool firstlaunch = true;
 private: System::Void MainForm_Activated(System::Object^ sender, System::EventArgs^ e) {
 		label4->Text = System::Convert::ToString(trackBar4->Value / 100.0);
 		label3->Text = System::Convert::ToString(trackBar3->Value);
@@ -422,18 +524,21 @@ private: System::Void trackBar3_ValueChanged(System::Object^ sender, System::Eve
 }
 private: System::Void trackBar2_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 	label2->Text = System::Convert::ToString(trackBar2->Value);
+	for (int i = 0; i < listsize; i++)
+		for (int j = 0; j < listsize; j++)
+			Peoples[i, j]->SetMaxPerInf(trackBar2->Value);
 }
 private: System::Void trackBar1_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 	label1->Text = System::Convert::ToString(trackBar1->Value / 100.0);
 	for (int i = 0; i < listsize; i++)
 		for (int j = 0; j < listsize; j++)
-			Peoples[i, j]->SetHealthy(trackBar4->Value);
+			Peoples[i, j]->SetHealthy(trackBar1->Value);
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	DeleteField();
 	sizepic = 50;
 	listsize = 11;
 	CreateField();
+	EnableField();
 }
 private: void DeleteField() {
 	for (int i = 0; i < listsize; i++)
@@ -453,22 +558,92 @@ private: void CreateField() {
 		}
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	DeleteField();
 	sizepic = 27;
 	listsize = 21;
 	CreateField();
+	EnableField();
 }
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-	DeleteField();
 	sizepic = 14;
 	listsize = 41;
 	CreateField();
+	EnableField();
 }
 private: System::Void Field31x31_Click(System::Object^ sender, System::EventArgs^ e) {
-	DeleteField();
 	sizepic = 18;
 	listsize = 31;
 	CreateField();
+	EnableField();
+}
+private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	DeleteField();
+	Field11x11->Enabled = true;
+	Field21x21->Enabled = true;
+	Field31x31->Enabled = true;
+	Field41x41->Enabled = true;
+	ChangeField->Enabled = false;
+}
+
+private: void EnableField()
+{
+	Field11x11->Enabled = false; 
+	Field21x21->Enabled = false; 
+	Field31x31->Enabled = false;
+	Field41x41->Enabled = false;
+	ChangeField->Enabled = true;
+	StepButton->Enabled = true;
+	PlayButton->Enabled = true;
+}
+private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	StepButton_Click(sender, e);
+	Sleep(150);
+}
+private: System::Void ResetButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	firstlaunch = true;
+	button1_Click_1(sender, e);
+	delete[] Peoples;
+	Peoples = gcnew cli::array<Unit*, 2>(50, 50);
+	for (int i = 0; i < 50; i++)
+		for (int j = 0; j < 50; j++)
+			Peoples[i, j] = new Unit();
+}
+private: System::Void StepButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (firstlaunch)
+	{
+		Peoples[listsize / 2, listsize / 2]->SetStatus(infected);
+		Peoples[listsize / 2, listsize / 2]->SetPerInf(1); 
+		firstlaunch = false;
+		ChangeField->Enabled = false;
+		ResetButton->Enabled = true;
+	}
+	for (int i = 0; i < listsize; i++)
+		for (int j = 0; j < listsize; j++)
+		{
+			if (Peoples[i, j]->GetStatus() == infected && Peoples[i, j]->GetPerInf() > 0 && (i > 0 && j > 0 && i < listsize * listsize && j < listsize * listsize))
+			{
+				for (int k = i - 1; k < i + 2; k++)
+					for (int m = j - 1; m < j + 2; m++)
+						if (Peoples[k, m]->GetHealthy() >= rand() % 100)
+							Peoples[k, m]->SetStatus(infected);
+			}
+			if (Peoples[i, j]->GetStatus() == infected)
+				Peoples[i, j]->SetPerInf(Peoples[i, j]->GetPerInf() + 1);
+		}
+
+	DrawField();
+}
+private: void DrawField()
+{
+	for (int i = 0; i < listsize; i++)
+		for (int j = 0; j < listsize; j++)
+			switch (Peoples[i, j]->GetStatus())
+			{
+			case infected: { Field[i, j]->BackColor = Color::Pink; break; }
+			case sick: { Field[i, j]->BackColor = Color::Red; break; }
+			case dead: { Field[i, j]->BackColor = Color::Black; break; }
+			case resisted: { Field[i, j]->BackColor = Color::DarkGreen; break; }
+			default: break;
+			}
 }
 };
 }

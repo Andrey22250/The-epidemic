@@ -12,8 +12,13 @@ class Unit
 {
 public:
 	Stat GetStatus();
+	void SetStatus(Stat status);
 	void SetHealthy(int Chance);
 	int GetHealthy();
+	void SetMaxPerInf(int Period);
+	int GetMaxPerInf();
+	void SetPerInf(int Period);
+	int GetPerInf();
 	Unit();
 	~Unit();
 private:
