@@ -3,10 +3,11 @@
 Unit::Unit()
 {
 	this->status = healthy;
-	this->health.SetChance(0.25);
+	this->health.SetChance(25);
 	this->infected.SetPeriod(0);
+	this->infected.SetMaxPeriod(7);
 	this->sick.SetPeriod(0);
-	this->dead.SetChanceOfDeath(0.15);
+	this->dead.SetChanceOfDeath(15);
 }
 Unit::~Unit() 
 {

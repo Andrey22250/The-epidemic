@@ -1,5 +1,5 @@
 #pragma once
-ref class Dead
+class Dead
 {
 public:
 	Dead();

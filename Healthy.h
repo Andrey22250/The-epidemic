@@ -1,6 +1,7 @@
 #pragma once
+#include <iostream>
 
-ref class Healthy
+class Healthy
 {
 public:
 	Healthy();
@@ -8,6 +9,6 @@ public:
 	float GetChance();
 	void SetChance(int Chance);
 private:
-	float chance;
+	float chance = 0;
 };
 

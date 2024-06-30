@@ -8,7 +8,7 @@
 
 using namespace std;
 
-ref class Unit
+class Unit
 {
 public:
 	Stat GetStatus();

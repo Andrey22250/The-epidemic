@@ -53,7 +53,7 @@ namespace Practica2sem {
 
 
 	private: System::Windows::Forms::Label^ label4;
-	private: cli::array<Unit^, 2> ^Peoples = gcnew cli::array<Unit^, 2>(50, 50);
+	private: cli::array<Unit*, 2> ^Peoples = gcnew cli::array<Unit*, 2>(50, 50);
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
@@ -410,11 +410,12 @@ private: System::Void MainForm_Activated(System::Object^ sender, System::EventAr
 		label3->Text = System::Convert::ToString(trackBar3->Value);
 		label2->Text = System::Convert::ToString(trackBar2->Value);
 		label1->Text = System::Convert::ToString(trackBar1->Value / 100.0);
+		for (int i = 0; i < 50; i++)
+			for (int j = 0; j < 50; j++)
+				Peoples[i, j] = new Unit();
 	}
 private: System::Void trackBar4_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 	label4->Text = System::Convert::ToString(trackBar4->Value / 100.0);
-	Peoples[0,0]->SetHealthy(trackBar4->Value);
-	label1->Text = System::Convert::ToString(Peoples[0, 0]->GetHealthy() / 100.0);
 }
 private: System::Void trackBar3_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 	label3->Text = System::Convert::ToString(trackBar3->Value);
@@ -424,6 +425,9 @@ private: System::Void trackBar2_ValueChanged(System::Object^ sender, System::Eve
 }
 private: System::Void trackBar1_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 	label1->Text = System::Convert::ToString(trackBar1->Value / 100.0);
+	for (int i = 0; i < listsize; i++)
+		for (int j = 0; j < listsize; j++)
+			Peoples[i, j]->SetHealthy(trackBar4->Value);
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	DeleteField();
