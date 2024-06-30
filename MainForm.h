@@ -75,6 +75,9 @@ namespace Practica2sem {
 
 
 	private: System::Windows::Forms::Button^ ResetButton;
+	private: System::Windows::Forms::Timer^ timer1;
+
+	private: System::ComponentModel::IContainer^ components;
 
 
 
@@ -90,7 +93,7 @@ namespace Practica2sem {
 		/// <summary>
 		/// Обязательная переменная конструктора.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -99,6 +102,7 @@ namespace Practica2sem {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			this->trackBar1 = (gcnew System::Windows::Forms::TrackBar());
 			this->trackBar3 = (gcnew System::Windows::Forms::TrackBar());
 			this->trackBar2 = (gcnew System::Windows::Forms::TrackBar());
@@ -120,6 +124,7 @@ namespace Practica2sem {
 			this->StepButton = (gcnew System::Windows::Forms::Button());
 			this->PlayButton = (gcnew System::Windows::Forms::Button());
 			this->ResetButton = (gcnew System::Windows::Forms::Button());
+			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar3))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar2))->BeginInit();
@@ -455,6 +460,10 @@ namespace Practica2sem {
 			this->ResetButton->UseVisualStyleBackColor = false;
 			this->ResetButton->Click += gcnew System::EventHandler(this, &MainForm::ResetButton_Click);
 			// 
+			// timer1
+			// 
+			this->timer1->Tick += gcnew System::EventHandler(this, &MainForm::PlayAnim);
+			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(144, 144);
@@ -507,6 +516,7 @@ namespace Practica2sem {
 	private: int listsize = 50;
 	private: int sizepic;
 	private: bool firstlaunch = true;
+	private: bool Changes = false;
 private: System::Void MainForm_Activated(System::Object^ sender, System::EventArgs^ e) {
 		label4->Text = System::Convert::ToString(trackBar4->Value / 100.0);
 		label3->Text = System::Convert::ToString(trackBar3->Value);
@@ -595,10 +605,26 @@ private: void EnableField()
 	PlayButton->Enabled = true;
 }
 private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	timer1->Start();
 	StepButton_Click(sender, e);
-	Sleep(150);
+	PlayAnim(sender, e);
+}
+private: void PlayAnim(System::Object^ sender, System::EventArgs^ e)
+{
+	if (Changes == true)
+	{
+		Changes = false;
+		StepButton_Click(sender, e);
+	}
+	else
+	{
+		PlayButton->Enabled = false;
+		StepButton->Enabled = false;
+
+	}
 }
 private: System::Void ResetButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	timer1->Stop();
 	firstlaunch = true;
 	button1_Click_1(sender, e);
 	delete[] Peoples;
@@ -612,24 +638,39 @@ private: System::Void StepButton_Click(System::Object^ sender, System::EventArgs
 	{
 		Peoples[listsize / 2, listsize / 2]->SetStatus(infected);
 		Peoples[listsize / 2, listsize / 2]->SetPerInf(1); 
-		firstlaunch = false;
+		firstlaunch = false; Changes = true;
 		ChangeField->Enabled = false;
 		ResetButton->Enabled = true;
 	}
-	for (int i = 0; i < listsize; i++)
-		for (int j = 0; j < listsize; j++)
-		{
-			if (Peoples[i, j]->GetStatus() == infected && Peoples[i, j]->GetPerInf() > 0 && (i > 0 && j > 0 && i < listsize * listsize && j < listsize * listsize))
+	else 
+	{
+		for (int i = 0; i < listsize; i++)
+			for (int j = 0; j < listsize; j++)
 			{
-				for (int k = i - 1; k < i + 2; k++)
-					for (int m = j - 1; m < j + 2; m++)
-						if (Peoples[k, m]->GetHealthy() >= rand() % 100)
-							Peoples[k, m]->SetStatus(infected);
+				if (Peoples[i, j]->GetStatus() == infected && Peoples[i, j]->GetPerInf() > 0 && (i > 0 && j > 0 && i < listsize * listsize && j < listsize * listsize))
+				{
+					for (int k = i - 1; k < i + 2; k++)
+						for (int m = j - 1; m < j + 2; m++)
+							if (Peoples[k, m]->GetHealthy() >= rand() % 100)
+								Peoples[k, m]->SetStatus(infected);
+					Changes = true;
+				}
 			}
-			if (Peoples[i, j]->GetStatus() == infected)
-				Peoples[i, j]->SetPerInf(Peoples[i, j]->GetPerInf() + 1);
-		}
-
+		for (int i = 0; i < listsize; i++)
+			for (int j = 0; j < listsize; j++)
+			{
+				if (Peoples[i, j]->GetStatus() == infected && Peoples[i, j]->GetPerInf() == Peoples[i, j]->GetMaxPerInf())
+				{
+					Peoples[i, j]->SetStatus(sick);
+					Changes = true;
+				}
+				if (Peoples[i, j]->GetStatus() == infected)
+				{
+					Peoples[i, j]->SetPerInf(Peoples[i, j]->GetPerInf() + 1);
+					Changes = true;
+				}
+			}
+	}
 	DrawField();
 }
 private: void DrawField()
