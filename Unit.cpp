@@ -3,11 +3,8 @@
 Unit::Unit()
 {
 	this->status = healthy;
-	this->health.SetChance(25);
 	this->infected.SetPeriod(0);
-	this->infected.SetMaxPeriod(7);
 	this->sick.SetPeriod(0);
-	this->dead.SetChanceOfDeath(15);
 }
 Unit::~Unit() 
 {
@@ -41,4 +38,30 @@ void Unit::SetPerInf(int Period) {
 
 int Unit::GetPerInf() {
 	return this->infected.GetPeriod();
+}
+
+void Unit::SetMaxPerSick(int Period) {
+	this->sick.SetMaxPerSick(Period);
+}
+
+int Unit::GetMaxPerSick() {
+	return this->sick.GetMaxPerSick();
+}
+
+void Unit::SetPerSick(int Period) {
+	this->sick.SetPeriod(Period);
+}
+
+int Unit::GetPerSick() {
+	return this->sick.GetPeriod();
+}
+
+void Unit::SetChanceofDeath(float Chance)
+{
+	this->dead.SetChanceOfDeath(Chance);
+}
+
+float Unit::GetChanceofDeath()
+{
+	return this->dead.GetChanceOfDeath();
 }

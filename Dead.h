@@ -4,9 +4,9 @@ class Dead
 public:
 	Dead();
 	~Dead();
-	int GetChanceOfDeath();
-	void SetChanceOfDeath(int Chance);
+	float GetChanceOfDeath();
+	void SetChanceOfDeath(float Chance);
 private:
-	int ChanceOfDeath;
+	float ChanceOfDeath;
 };
 

@@ -6,11 +6,11 @@ Dead::Dead() {
 Dead::~Dead() {
 
 }
-int Dead::GetChanceOfDeath()
+float Dead::GetChanceOfDeath()
 {
 	return ChanceOfDeath;
 }
-void Dead::SetChanceOfDeath(int Chance)
+void Dead::SetChanceOfDeath(float Chance)
 {
 	this->ChanceOfDeath = Chance;
 }
