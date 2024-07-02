@@ -2,14 +2,14 @@
 class Sick
 {
 public:
-	Sick();
+	Sick();					//Стандартные сеты и геты для класса
 	~Sick();
 	int GetPeriod();
 	void SetPeriod(int Period);
 	int GetMaxPerSick();
 	void SetMaxPerSick(int Period);
 private:
-	int Period;
-	int Maxper;
+	int Period;		//Текущее время болезни
+	int Maxper;		//Максимальное время болезни
 };
 

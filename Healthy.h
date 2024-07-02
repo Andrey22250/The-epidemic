@@ -9,6 +9,6 @@ public:
 	float GetChance();
 	void SetChance(int Chance);
 private:
-	float chance = 0;
+	float chance = 0;		//Шанс заражения болезнью от инфицированного
 };
 

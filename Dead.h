@@ -7,6 +7,6 @@ public:
 	float GetChanceOfDeath();
 	void SetChanceOfDeath(float Chance);
 private:
-	float ChanceOfDeath;
+	float ChanceOfDeath;		//Шанс умереть при болезни - определяется ползунком, делённым на кол-во дней
 };
 

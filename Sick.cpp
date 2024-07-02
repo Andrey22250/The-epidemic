@@ -1,6 +1,6 @@
 #include "Sick.h"
 
-Sick::Sick() {
+Sick::Sick() {  //Стандартые сеты и геты параметров
 }
 Sick::~Sick() {
 }

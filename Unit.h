@@ -1,5 +1,5 @@
 #pragma once
-#include <iostream>
+#include <iostream>		//Подключение вложенных классов и библиотек
 #include "Status.h"
 #include "Healthy.h"
 #include "Infected.h"
@@ -11,7 +11,7 @@ using namespace std;
 class Unit
 {
 public:
-	Stat GetStatus();
+	Stat GetStatus();				//Для каждой переменной - Set и Get
 	void SetStatus(Stat status);
 
 	void SetHealthy(int Chance);
@@ -33,9 +33,9 @@ public:
 	Unit();
 	~Unit();
 private:
-	Stat status;
-	Healthy health;
-	Infected infected;
-	Sick sick;
-	Dead dead;
+	Stat status;		//Статус заболевания
+	Healthy health;		//Параметр, отвечающий за здоворого человека
+	Infected infected;	//Параметр, отвечающий за инфицированного человека
+	Sick sick;			//Параметр, отвечающий за больного человека
+	Dead dead;			//Параметр, управляющий смертью
 };

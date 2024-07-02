@@ -1,6 +1,6 @@
 #include "Infected.h"
 
-Infected::Infected() {
+Infected::Infected() {		//Стандартные сеты и геты параметров
 
 }
 Infected::~Infected() {

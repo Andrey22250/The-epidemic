@@ -3,7 +3,4 @@
 
 using namespace std;
 
-enum Stat { healthy, infected, sick, dead, resisted };
-
-string StatusToString(Stat status);
-
+enum Stat { healthy, infected, sick, dead, resisted };		//Через enum - список статусов

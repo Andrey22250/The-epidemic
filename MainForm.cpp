@@ -2,7 +2,7 @@
 #include <Windows.h>
 using namespace Practica2sem;
 
-int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
+int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) //Функция, отвечающая за запуск приложения
 {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);

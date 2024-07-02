@@ -1,6 +1,6 @@
 #include "Unit.h"
 
-Unit::Unit()
+Unit::Unit()		//Конструктор и деструктор
 {
 	this->status = healthy;
 	this->infected.SetPeriod(0);
@@ -9,7 +9,7 @@ Unit::Unit()
 Unit::~Unit() 
 {
 }
-Stat Unit::GetStatus() {
+Stat Unit::GetStatus() {		//Сеты и геты для всех переменных
 	return status;
 }
 void Unit::SetStatus(Stat status) {

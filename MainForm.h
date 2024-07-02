@@ -55,7 +55,7 @@ namespace Practica2sem {
 
 
 	private: System::Windows::Forms::Label^ label4;
-	private: cli::array<Unit*, 2> ^Peoples = gcnew cli::array<Unit*, 2>(50, 50);
+	private: cli::array<Unit*, 2> ^Peoples = gcnew cli::array<Unit*, 2>(50, 50);  //Использование библиотеки cli и её массивов
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
@@ -73,21 +73,12 @@ namespace Practica2sem {
 	private: System::Windows::Forms::Button^ StepButton;
 	private: System::Windows::Forms::Button^ PlayButton;
 
-
 	private: System::Windows::Forms::Button^ ResetButton;
 	private: System::Windows::Forms::Timer^ timer1;
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Label^ DaysCounter;
 
-
 	private: System::ComponentModel::IContainer^ components;
-
-
-
-
-
-
-
 
 
 
@@ -543,16 +534,17 @@ namespace Practica2sem {
 
 		}
 #pragma endregion
-	private: int listsize = 50;
-	private: int sizepic;
-	private: bool firstlaunch = true;
-	private: bool Changes = true;
+	private: int listsize = 50;		//Базовый размер листа, по нему будем создавать начальных юнитов
+	private: int sizepic;			//Размер юнита, меняется для каждой сетки
+	private: bool firstlaunch = true; //Переменная для корректного запуска эмуляции
+	private: bool Changes = true;		//Проверка изменений в прорисовке
 private: System::Void MainForm_Activated(System::Object^ sender, System::EventArgs^ e) {
-		label4->Text = System::Convert::ToString(trackBar4->Value / 100.0);
+		label4->Text = System::Convert::ToString(trackBar4->Value / 100.0);		//Синхронизация трек-баров и текста, который отображается
 		label3->Text = System::Convert::ToString(trackBar3->Value);
 		label2->Text = System::Convert::ToString(trackBar2->Value);
 		label1->Text = System::Convert::ToString(trackBar1->Value / 100.0);
-		for (int i = 0; i < 50; i++)
+		srand(time(NULL));		//Рандомизация шансов
+		for (int i = 0; i < 50; i++)		//Создание начальных юнитов
 			for (int j = 0; j < 50; j++)
 			{
 				Peoples[i, j] = new Unit();
@@ -566,7 +558,7 @@ private: System::Void trackBar4_ValueChanged(System::Object^ sender, System::Eve
 	label4->Text = System::Convert::ToString(trackBar4->Value / 100.0);
 	for (int i = 0; i < listsize; i++)
 		for (int j = 0; j < listsize; j++)
-			Peoples[i, j]->SetChanceofDeath(trackBar4->Value / (trackBar3->Value * 1.5));
+			Peoples[i, j]->SetChanceofDeath(trackBar4->Value / (trackBar3->Value * 1.5));		//Изменяем соответствующее значение массива
 }
 private: System::Void trackBar3_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 	label3->Text = System::Convert::ToString(trackBar3->Value);
@@ -587,26 +579,26 @@ private: System::Void trackBar1_ValueChanged(System::Object^ sender, System::Eve
 			Peoples[i, j]->SetHealthy(trackBar1->Value);
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	sizepic = 50;
+	sizepic = 50;		//Установка размера картинки и кол-ва юнитов
 	listsize = 11;
-	CreateField();
-	EnableField();
+	CreateField();		//Создаём и рисуем поле
+	EnableField();		//Активируем и убираем клавиши и ползунки
 }
 private: void DeleteField() {
 	for (int i = 0; i < listsize; i++)
 		for (int j = 0; j < listsize; j++)
-			this->Controls->Remove(Field[i, j]);
+			this->Controls->Remove(Field[i, j]);		//Очистка визуального игрового поля
 }
 private: void CreateField() {
 	for (int i = 0; i < listsize; i++)
 		for (int j = 0; j < listsize; j++)
 		{
-			Field[i, j] = gcnew PictureBox();
+			Field[i, j] = gcnew PictureBox();		//Создание массива из PictureBox и установка параметров
 			Field[i, j]->Location = Point(200 + ((j * 1.15) * sizepic), 25 + ((i * 1.15) * sizepic));
 			Field[i, j]->BackColor = Color::White;
 			Field[i, j]->Width = sizepic;
 			Field[i, j]->Height = sizepic;
-			this->Controls->Add(Field[i, j]);
+			this->Controls->Add(Field[i, j]);		//Добавляем в форму элемент
 		}
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -628,7 +620,7 @@ private: System::Void Field31x31_Click(System::Object^ sender, System::EventArgs
 	EnableField();
 }
 private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	DeleteField();
+	DeleteField();		//Убирает поле с экрана - не нужно убирать массив, т.к. он тут не задействован
 	Field11x11->Enabled = true;
 	Field21x21->Enabled = true;
 	Field31x31->Enabled = true;
@@ -638,7 +630,7 @@ private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^
 
 private: void EnableField()
 {
-	Field11x11->Enabled = false; 
+	Field11x11->Enabled = false;		//Переключаем положения кнопок
 	Field21x21->Enabled = false; 
 	Field31x31->Enabled = false;
 	Field41x41->Enabled = false;
@@ -647,7 +639,7 @@ private: void EnableField()
 	PlayButton->Enabled = true;
 }
 private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	timer1->Start();
+	timer1->Start();		//Функция, отвечающая за отрисовку картинки автоматически - через таймер запуск и стоп, далее - нажатие StepButton
 	PlayAnim(sender, e);
 }
 private: void PlayAnim(System::Object^ sender, System::EventArgs^ e)
@@ -655,13 +647,15 @@ private: void PlayAnim(System::Object^ sender, System::EventArgs^ e)
 	StepButton_Click(sender, e);
 }
 private: System::Void ResetButton_Click(System::Object^ sender, System::EventArgs^ e) {
-	timer1->Stop();
-	firstlaunch = true;
+	timer1->Stop();		//Остановка таймера, если был авто режим
+	firstlaunch = true;	//Сброс логических переменных
 	Changes = true;
-	button1_Click_1(sender, e);
-	delete[] Peoples;
+	button1_Click_1(sender, e);	//Очистка поля
+	DaysCounter->Text = "0";		//Сброс счётчика дней
+	PlayButton->Enabled = false;	//Деактивация кнопок
+	StepButton->Enabled = false;
+	delete[] Peoples;			//Обнуление массива объектов и создание его заново с параметрами
 	Peoples = gcnew cli::array<Unit*, 2>(50, 50);
-	DaysCounter->Text = "0";
 	for (int i = 0; i < 50; i++)
 		for (int j = 0; j < 50; j++)
 		{
@@ -673,10 +667,10 @@ private: System::Void ResetButton_Click(System::Object^ sender, System::EventArg
 		}
 }
 private: System::Void StepButton_Click(System::Object^ sender, System::EventArgs^ e) {
-	if(Changes)
+	if(Changes)		//Переменная, проверяем, были ли изменения в коде
 	{
-		Changes = false;
-		if (firstlaunch)
+		Changes = false;	//Сброс, далее ждёт установки флага
+		if (firstlaunch)	//При первом дне - создаём параметры для первого заражённого
 		{
 			Peoples[listsize / 2, listsize / 2]->SetStatus(infected);
 			Peoples[listsize / 2, listsize / 2]->SetPerInf(1);
@@ -686,32 +680,32 @@ private: System::Void StepButton_Click(System::Object^ sender, System::EventArgs
 		}
 		else
 		{
-			for (int i = 0; i < listsize; i++)
-				for (int j = 0; j < listsize; j++)
+			for (int i = 0; i < listsize; i++)	//Проверка по состояниям объектов и их смена другими классами
+				for (int j = 0; j < listsize; j++) //Первый цикл - для перевода из здововых в инфицированных
 				{
 					if (Peoples[i, j]->GetStatus() == infected && Peoples[i, j]->GetPerInf() > 0 && (i > 0 && j > 0 && i < listsize * listsize && j < listsize * listsize))
 					{
 						for (int k = i - 1; k < i + 2; k++)
 							for (int m = j - 1; m < j + 2; m++)
-								if (Peoples[k, m]->GetHealthy() >= rand() % 100 && Peoples[k, m]->GetStatus() == healthy)
+								if (Peoples[k, m]->GetHealthy() >= rand() % 100 && Peoples[k, m]->GetStatus() == healthy)	//Перевод при выпадении шанса
 									Peoples[k, m]->SetStatus(infected);
 						Changes = true;
 					}
 				}
-			for (int i = 0; i < listsize; i++)
+			for (int i = 0; i < listsize; i++)		//Второй цикл - перевод из инфицированных в больных, из больных - в мёртвых или излечившихся
 				for (int j = 0; j < listsize; j++)
 				{
-					if (Peoples[i, j]->GetStatus() == infected && Peoples[i, j]->GetPerInf() == Peoples[i, j]->GetMaxPerInf())
+					if (Peoples[i, j]->GetStatus() == infected && Peoples[i, j]->GetPerInf() >= Peoples[i, j]->GetMaxPerInf())
 					{
 						Peoples[i, j]->SetStatus(sick);
 						Changes = true;
 					}
-					else if (Peoples[i, j]->GetStatus() == infected)
+					if (Peoples[i, j]->GetStatus() == infected)
 					{
 						Peoples[i, j]->SetPerInf(Peoples[i, j]->GetPerInf() + 1);
 						Changes = true;
 					}
-					if (Peoples[i, j]->GetStatus() == sick && Peoples[i, j]->GetPerSick()>0)
+					if (Peoples[i, j]->GetStatus() == sick && Peoples[i, j]->GetPerSick() > 0)
 					{
 						Changes = true;
 						if (Peoples[i, j]->GetChanceofDeath() >= rand() % 100)
@@ -722,27 +716,30 @@ private: System::Void StepButton_Click(System::Object^ sender, System::EventArgs
 						Changes = true;
 						Peoples[i, j]->SetPerSick(Peoples[i, j]->GetPerSick() + 1);
 					}
-					if(Peoples[i, j]->GetStatus() == sick && Peoples[i, j]->GetMaxPerSick() < Peoples[i, j]->GetPerSick())
+					if (Peoples[i, j]->GetStatus() == sick && Peoples[i, j]->GetMaxPerSick() < Peoples[i, j]->GetPerSick())
 					{
 						Changes = true;
 						Peoples[i, j]->SetStatus(resisted);
 					}
 				}
 		}
-		DaysCounter->Text = System::Convert::ToString(System::Convert::ToInt32(DaysCounter->Text) + 1);
-		DrawField();
-	}
-	else
-	{
-		PlayButton->Enabled = false;
-		StepButton->Enabled = false;
+		if(Changes)
+		{
+			DaysCounter->Text = System::Convert::ToString(System::Convert::ToInt32(DaysCounter->Text) + 1);
+			DrawField();
+		}
+		else
+		{
+			PlayButton->Enabled = false;
+			StepButton->Enabled = false;
+		}
 	}
 }
 private: void DrawField()
 {
 	for (int i = 0; i < listsize; i++)
 		for (int j = 0; j < listsize; j++)
-			switch (Peoples[i, j]->GetStatus())
+			switch (Peoples[i, j]->GetStatus())		//Смотрим статус объекта и делаем по нему свич, меняем цвета в соответствии
 			{
 			case infected: { Field[i, j]->BackColor = Color::Pink; break; }
 			case sick: { Field[i, j]->BackColor = Color::Red; break; }
