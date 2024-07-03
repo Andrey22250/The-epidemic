@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <iostream>
 #include <array>
 #include "Unit.h"
@@ -458,6 +458,7 @@ namespace Practica2sem {
 			// 
 			// timer1
 			// 
+			this->timer1->Interval = 150;
 			this->timer1->Tick += gcnew System::EventHandler(this, &MainForm::PlayAnim);
 			// 
 			// label6
