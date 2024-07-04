@@ -1,8 +1,6 @@
 ﻿#pragma once
-#include <iostream>
-#include <array>
 #include "Unit.h"
-#include <Windows.h>
+
 namespace Practica2sem {
 
 	using namespace System;
@@ -525,7 +523,7 @@ namespace Practica2sem {
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Эпидемия";
-			this->Activated += gcnew System::EventHandler(this, &MainForm::MainForm_Activated);
+			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar3))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar2))->EndInit();
@@ -539,27 +537,12 @@ namespace Practica2sem {
 	private: int sizepic;			//Размер юнита, меняется для каждой сетки
 	private: bool firstlaunch = true; //Переменная для корректного запуска эмуляции
 	private: bool Changes = true;		//Проверка изменений в прорисовке
-private: System::Void MainForm_Activated(System::Object^ sender, System::EventArgs^ e) {
-		label4->Text = System::Convert::ToString(trackBar4->Value / 100.0);		//Синхронизация трек-баров и текста, который отображается
-		label3->Text = System::Convert::ToString(trackBar3->Value);
-		label2->Text = System::Convert::ToString(trackBar2->Value);
-		label1->Text = System::Convert::ToString(trackBar1->Value / 100.0);
-		srand(time(NULL));		//Рандомизация шансов
-		for (int i = 0; i < 50; i++)		//Создание начальных юнитов
-			for (int j = 0; j < 50; j++)
-			{
-				Peoples[i, j] = new Unit();
-				Peoples[i, j]->SetHealthy(trackBar1->Value);
-				Peoples[i, j]->SetMaxPerInf(trackBar2->Value);
-				Peoples[i, j]->SetMaxPerSick(trackBar3->Value);
-				Peoples[i, j]->SetChanceofDeath(trackBar4->Value / (trackBar3->Value * 1.5));
-			}
-	}
+
 private: System::Void trackBar4_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 	label4->Text = System::Convert::ToString(trackBar4->Value / 100.0);
 	for (int i = 0; i < listsize; i++)
 		for (int j = 0; j < listsize; j++)
-			Peoples[i, j]->SetChanceofDeath(trackBar4->Value / (trackBar3->Value * 1.5));		//Изменяем соответствующее значение массива
+			Peoples[i, j]->SetChanceofDeath(trackBar4->Value / (trackBar3->Value));		//Изменяем соответствующее значение массива
 }
 private: System::Void trackBar3_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 	label3->Text = System::Convert::ToString(trackBar3->Value);
@@ -635,6 +618,7 @@ private: void EnableField()
 	Field21x21->Enabled = false; 
 	Field31x31->Enabled = false;
 	Field41x41->Enabled = false;
+	ResetButton->Enabled = true;
 	ChangeField->Enabled = true;
 	StepButton->Enabled = true;
 	PlayButton->Enabled = true;
@@ -649,6 +633,7 @@ private: void PlayAnim(System::Object^ sender, System::EventArgs^ e)
 }
 private: System::Void ResetButton_Click(System::Object^ sender, System::EventArgs^ e) {
 	timer1->Stop();		//Остановка таймера, если был авто режим
+	ResetButton->Enabled = false;
 	firstlaunch = true;	//Сброс логических переменных
 	Changes = true;
 	button1_Click_1(sender, e);	//Очистка поля
@@ -664,7 +649,7 @@ private: System::Void ResetButton_Click(System::Object^ sender, System::EventArg
 			Peoples[i, j]->SetHealthy(trackBar1->Value);
 			Peoples[i, j]->SetMaxPerInf(trackBar2->Value);
 			Peoples[i, j]->SetMaxPerSick(trackBar3->Value);
-			Peoples[i, j]->SetChanceofDeath(trackBar4->Value / (trackBar3->Value * 1.5));
+			Peoples[i, j]->SetChanceofDeath(trackBar4->Value / (trackBar3->Value));
 		}
 }
 private: System::Void StepButton_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -748,6 +733,22 @@ private: void DrawField()
 			case resisted: { Field[i, j]->BackColor = Color::DarkGreen; break; }
 			default: break;
 			}
+}
+private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	label4->Text = System::Convert::ToString(trackBar4->Value / 100.0);		//Синхронизация трек-баров и текста, который отображается
+	label3->Text = System::Convert::ToString(trackBar3->Value);
+	label2->Text = System::Convert::ToString(trackBar2->Value);
+	label1->Text = System::Convert::ToString(trackBar1->Value / 100.0);
+	srand(time(NULL));		//Рандомизация шансов
+	for (int i = 0; i < 50; i++)		//Создание начальных юнитов
+		for (int j = 0; j < 50; j++)
+		{
+			Peoples[i, j] = new Unit();
+			Peoples[i, j]->SetHealthy(trackBar1->Value);
+			Peoples[i, j]->SetMaxPerInf(trackBar2->Value);
+			Peoples[i, j]->SetMaxPerSick(trackBar3->Value);
+			Peoples[i, j]->SetChanceofDeath(trackBar4->Value / (trackBar3->Value));
+		}
 }
 };
 }

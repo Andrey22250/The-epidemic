@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 
 class Healthy
 {
@@ -9,6 +8,6 @@ public:
 	float GetChance();
 	void SetChance(int Chance);
 private:
-	float chance = 0;		//Шанс заражения болезнью от инфицированного
+	float chance = 0;		//РЁР°РЅСЃ Р·Р°СЂР°Р¶РµРЅРёСЏ Р±РѕР»РµР·РЅСЊСЋ РѕС‚ РёРЅС„РёС†РёСЂРѕРІР°РЅРЅРѕРіРѕ
 };
 

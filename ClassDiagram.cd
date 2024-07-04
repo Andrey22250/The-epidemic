@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Unit">
+    <Position X="5" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAABAhAEYAAAAgAFQAAAERAIQAAgAEABBAg=</HashCode>
+      <FileName>Unit.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="dead" />
+      <Field Name="health" />
+      <Field Name="infected" />
+      <Field Name="sick" />
+      <Field Name="status" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Dead">
+    <Position X="1.25" Y="0.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAACAAAAACAAACAACAAAAAA=</HashCode>
+      <FileName>Dead.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Healthy">
+    <Position X="1" Y="4.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAABAAAAEAAAAAAAABAAAQ=</HashCode>
+      <FileName>Healthy.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Infected">
+    <Position X="5.25" Y="4.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAiAAACAAACIAAAQAAAAAIAAAAAAI=</HashCode>
+      <FileName>Infected.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sick">
+    <Position X="8.75" Y="3.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACCAAAAAACCIAAARAAAAAAAAAAAAI=</HashCode>
+      <FileName>Sick.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Stat">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAgABAAAQAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Status.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
